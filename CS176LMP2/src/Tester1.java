@@ -4,7 +4,7 @@ public class Tester1 {
 		
 		Class1 strings = new Class1(100);
 		strings.load();
-		strings.search("Hello");
+		strings.search("hello");
 		strings.findMax();
 		strings.findMin();
 		strings.findLongest();

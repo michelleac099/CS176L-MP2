@@ -15,11 +15,11 @@ public class Class1 {
 	public void load()
 	{
 		String input;
-		System.out.println("Enter strings to be added to the array, type '123' to exit: ");
+		System.out.println("Enter strings to be added to the array, type 'END' to exit: ");
 		while(in.hasNext())
 		{
 			input = in.next();
-			if (input.contentEquals("123"))
+			if (input.contentEquals("END"))
 				break;
 			stringArray[howMany] = input;
 			howMany++;
@@ -29,14 +29,13 @@ public class Class1 {
 	
 	public boolean search(String inWord)
 	{
-		boolean answer = false;
-		String comparison;
-		for(String element : stringArray) {
-			comparison = element;
-			if (inWord.contentEquals(comparison))
-				answer = true;
-		}//for
-		return answer;
+		boolean exists = false;
+		for (int i = 0; i <= howMany; i++) {
+			if (stringArray[i].contentEquals(inWord))
+
+				exists = true;
+		}
+		return exists;
 	}
 	
 	public String findMax()

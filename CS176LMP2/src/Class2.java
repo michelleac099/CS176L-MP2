@@ -28,12 +28,16 @@ public class Class2 {
 	
 	public boolean search(int inNum)
 	{
-		boolean answer = false;
-		for(int element : integerArray) {
-			if (integerArray[element]==inNum)
-				answer = true;
-		}//for
-		return answer;
+
+		boolean number = false;
+
+		for (int i = 0; i < howMany; i++) {
+
+			if (inNum == integerArray[i]) {
+				number = true;
+			}
+		}
+		return number;
 	}
 	
 	public int findMax()
