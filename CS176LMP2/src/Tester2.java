@@ -4,11 +4,15 @@ public class Tester2 {
 		
 		Class2 numbers = new Class2(100);
 		numbers.load();
-		numbers.search(5);
-		numbers.findMax();
-		numbers.findMin();
-		numbers.findMaxPos();
-		numbers.findMinPos();
+		System.out.println("Is 5 in the array: " + numbers.search(5));
+
+		System.out.println("Max value: " + numbers.findMax());
+
+		System.out.println("Min value: " + numbers.findMin());
+
+		System.out.println("Max value position: " + numbers.findMaxPos());
+
+		System.out.print("Min value position: " + numbers.findMinPos());
 		
 	}//main
 

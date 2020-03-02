@@ -28,28 +28,21 @@ public class Class2 {
 	
 	public boolean search(int inNum)
 	{
-
-		boolean number = false;
-
-		for (int i = 0; i < howMany; i++) {
-
-			if (inNum == integerArray[i]) {
-				number = true;
-			}
-		}
-		return number;
+		boolean exists = false;
+		for(int i = 0; i<howMany;i++) {
+			if (integerArray[i]==inNum)
+				exists = true;
+		}//for
+		return exists;
 	}
 	
 	public int findMax()
 	{
-		int position = 0;
 		int largest = integerArray[0];
-		for (int element : integerArray) {
-			
-			if (element > largest)
-				largest = element;
-				maxElementPos = position;
-		position++;
+
+		for (int i = 0; i < howMany; i++) {
+			if (integerArray[i] > largest) 
+				largest = integerArray[i];
 		}//for
 		
 		return largest;
@@ -57,14 +50,11 @@ public class Class2 {
 	
 	public int findMin()
 	{
-		int position = 0;
 		int smallest = integerArray[0];
-		for (int element : integerArray) {
-			
-			if(element < smallest)
-				smallest = element;
-				minElementPos = position;
-		position++;
+
+		for (int i = 0; i < howMany; i++) {
+			if (integerArray[i] < smallest) 
+				smallest = integerArray[i];
 		}//for
 		
 		return smallest;
@@ -72,14 +62,28 @@ public class Class2 {
 	
 	public int findMaxPos()
 	{
+		int largest = integerArray[0];
+		maxElementPos = 0;
+		for (int i = 0; i < howMany; i++) {
+			if (integerArray[i] > largest) {
+				largest = integerArray[i];
+				maxElementPos = i;}
+		}//for
+		
 		return maxElementPos;
 	}
 	
 	public int findMinPos()
 	{
+		int smallest = integerArray[0];
+		minElementPos = 0;
+		for (int i = 0; i < howMany; i++) {
+			if (integerArray[i] < smallest) {
+				smallest = integerArray[i];
+				minElementPos = i;}
+		}//for
+		
 		return minElementPos;
 	}
-	
-	
 	
 }//Class2

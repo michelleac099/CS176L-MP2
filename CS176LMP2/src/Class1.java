@@ -3,93 +3,91 @@ import java.util.Scanner;
 public class Class1 {
 
 	Scanner in = new Scanner(System.in);
-	private String[] stringArray;
-	private int howMany;
+	int howMany = 0;
+	String input;
+	String max = "";
+	String min = "";
+	boolean out = false;
 	
-	public Class1(int capacity)
+	String [] stringArray;
+
+	public Class1(int size)
 	{
-		stringArray = new String[capacity];
-		howMany = 0;
+		stringArray = new String[size];
 	}
-	
+
 	public void load()
 	{
-		String input;
-		System.out.println("Enter strings to be added to the array, type 'END' to exit: ");
-		while(in.hasNext())
-		{
+
+		System.out.print("Enter strings to add to the array or 'END' to stop: ");
+
+		while(out == false) {
 			input = in.next();
-			if (input.contentEquals("END"))
-				break;
-			stringArray[howMany] = input;
-			howMany++;
-		}//while
-		
-	}
-	
-	public boolean search(String inWord)
+			if(input.equals("END")) {
+				out = true;
+				howMany--; }
+			else {
+				stringArray[howMany] = input;
+				howMany++; }
+		}//while loop
+	}//load
+
+	public boolean search(String array) 
 	{
 		boolean exists = false;
 		for (int i = 0; i <= howMany; i++) {
-			if (stringArray[i].contentEquals(inWord))
-
+			if (stringArray[i].contentEquals(array))
 				exists = true;
-		}
+		}//for
 		return exists;
 	}
-	
-	public String findMax()
-	{
-		int result;
-		String max = stringArray[0];
-		for(String element : stringArray) {
-			result = max.compareToIgnoreCase(element);
-			if (result > 0)
-				max = element;
-		}//for
-		
-		return max;
-	}
-	
+
+
 	public String findMin()
 	{
-		int result;
-		String min = stringArray[0];
-		for(String element : stringArray) {
-			result = min.compareToIgnoreCase(element);
-			if (result < 0)
-				min = element;
+
+		for(int i = 0; i <= howMany; i++) {
+			if(i == 0)
+				min = stringArray[i];
+			else {
+				if(stringArray[i].compareTo(min) < 0) {
+					min = stringArray[i]; }
+			}
 		}//for
-		
 		return min;
-		 
 	}
-	
+
+	public String findMax()
+	{
+		for(int i = 0; i <= howMany; i++) {
+			if(i == 0)
+				max = stringArray[i];
+			else{
+				if(stringArray[i].compareTo(max) > 0) {
+					max = stringArray[i]; }
+			}
+		}//for
+		return max;
+	}
+
 	public String findLongest()
 	{
-		String longest = " ";
-		int longestLength = 0;
-		
-		for(String element : stringArray) {
-			if (element.length() > longestLength)
-				longestLength = element.length();
-				longest = element;
+		String longest = stringArray[0];
+		for(int i = 1; i <= howMany; i++) {
+			if(stringArray[i].length() > longest.length())
+				longest = stringArray[i];
 		}//for
 		return longest;
 	}
-	
+
 	public String findShortest()
 	{
-		String shortest = " ";
-		int shortestLength = 999;
-		
-		for(String element : stringArray) {
-			if (element.length() < shortestLength)
-				shortestLength = element.length();
-				shortest = element;
+		String shortest = stringArray[0];
+		for(int i = 1; i <= howMany; i++) {
+			if(stringArray[i].length() < shortest.length())
+				shortest = stringArray[i];
 		}//for
-				
 		return shortest;
 	}
-	
+
 }//Class1
